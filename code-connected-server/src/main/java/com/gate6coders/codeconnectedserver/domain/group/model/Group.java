@@ -5,15 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-<<<<<<< HEAD
 import javax.persistence.*;
-=======
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
->>>>>>> 1ec414fb12785b4c0eef8d472a2e09823489c2dc
 import java.util.List;
 
 @Entity
