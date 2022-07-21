@@ -27,7 +27,7 @@ public class Group {
     private String groupName;
 
     @NonNull
-    private List<Profile> admin;
+    private Profile admin;
 
     @NonNull
     private String description;
