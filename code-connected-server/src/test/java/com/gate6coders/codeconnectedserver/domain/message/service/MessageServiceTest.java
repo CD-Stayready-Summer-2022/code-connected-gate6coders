@@ -1,5 +1,6 @@
 package com.gate6coders.codeconnectedserver.domain.message.service;
 
+import com.fasterxml.jackson.databind.util.ArrayIterator;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.message.model.Message;
 import com.gate6coders.codeconnectedserver.domain.message.repo.MessageRepo;
@@ -18,6 +19,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
@@ -65,6 +69,36 @@ public class MessageServiceTest {
         Assertions.assertThrows(ResourceNotFoundException.class, () -> {
             messageService.getById(1L);
         });
+    }
+
+    @Test
+    @DisplayName("Get messages by sender")
+    public void getMessageBySenderTest01(){
+        List<Message> messages = new ArrayList<>();
+        messages.add(savedMessage1);
+        BDDMockito.doReturn(messages).when(messageRepo).findBySender(ArgumentMatchers.any());
+        Iterable<Message> messagesBySender = messageService.getBySender(1L);
+        Assertions.assertTrue(messagesBySender.iterator().hasNext());
+    }
+
+    @Test
+    @DisplayName("Get messages by receiver")
+    public void getMessagesByReceiverTest01(){
+        List<Message> messages = new ArrayList<>();
+        messages.add(savedMessage1);
+        BDDMockito.doReturn(messages).when(messageRepo).findByReceiver(ArgumentMatchers.any());
+        Iterable<Message> messagesByReceiver = messageService.getByReceiver(1L);
+        Assertions.assertTrue(messagesByReceiver.iterator().hasNext());
+    }
+
+    @Test
+    @DisplayName("Get by date sent")
+    public void getByDateSentTest01(){
+        List<Message> messages = new ArrayList<>();
+        messages.add(savedMessage1);
+        BDDMockito.doReturn(messages).when(messageRepo).findByDateSent(ArgumentMatchers.any());
+        Iterable<Message> messagesByDate = messageService.getByDate(Timestamp.valueOf(LocalDateTime.now()));
+        Assertions.assertTrue(messagesByDate.iterator().hasNext());
     }
 
     @Test
