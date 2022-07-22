@@ -4,10 +4,12 @@ import com.gate6coders.codeconnectedserver.domain.group.model.Group;
 import com.gate6coders.codeconnectedserver.domain.group.repo.GroupRepo;
 import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import com.gate6coders.codeconnectedserver.domain.profile.repo.ProfileRepo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class GroupServiceImpl implements GroupService {
     private ProfileRepo profileRepo;
     private GroupRepo groupRepo;

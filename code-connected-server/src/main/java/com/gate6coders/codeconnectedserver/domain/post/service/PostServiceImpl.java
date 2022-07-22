@@ -3,9 +3,11 @@ package com.gate6coders.codeconnectedserver.domain.post.service;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ProfileNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.post.model.Post;
 import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PostServiceImpl implements PostService {
 
     @Override
