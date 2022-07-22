@@ -3,7 +3,6 @@ package com.gate6coders.codeconnectedserver.domain.message.service;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.message.model.Message;
 import com.gate6coders.codeconnectedserver.domain.message.repo.MessageRepo;
-import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
