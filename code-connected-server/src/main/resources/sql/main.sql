@@ -11,14 +11,11 @@ CREATE TABLE IF NOT EXISTS `profile`(
     `password` VARCHAR(50),
     `sender_id` INTEGER,
     `receiver_id` INTEGER,
-    `about_id` INTEGER
+    `about_id` INTEGER,
+    `group_id` INTEGER,
+    `admin_id` INTEGER
 );
 
-CREATE TABLE IF NOT EXISTS `message`(
-    `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
-    `message_content` VARCHAR(500),
-    `date_sent` TIMESTAMP
-);
 
 CREATE TABLE IF NOT EXISTS `about_user`(
 	`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
