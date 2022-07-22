@@ -2,8 +2,10 @@ package com.gate6coders.codeconnectedserver.domain.post.model;
 
 import com.gate6coders.codeconnectedserver.domain.comment.model.Comment;
 import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
-import org.springframework.lang.NonNull;
 
+import lombok.*;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
