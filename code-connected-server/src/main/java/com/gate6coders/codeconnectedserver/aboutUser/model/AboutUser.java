@@ -25,17 +25,17 @@ public class AboutUser {
     private String  profileHeadline;
 
     @OneToMany(targetEntity = Skill.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "about_user_id", referencedColumnName = "id")
+    @JoinColumn(name = "about_id", referencedColumnName = "id")
     @NonNull
     private List<String> skills;
 
     @OneToMany(targetEntity = Experience.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "about_user_id", referencedColumnName = "id")
+    @JoinColumn(name = "about_id", referencedColumnName = "id")
     @NonNull
     private List<Experience> experience;
 
     @OneToMany(targetEntity = Education.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "about_user_id", referencedColumnName = "id")
+    @JoinColumn(name = "about_id", referencedColumnName = "id")
     @NonNull
     private List<Education> education;
 }
