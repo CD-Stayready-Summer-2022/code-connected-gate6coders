@@ -1,4 +1,5 @@
-package com.gate6coders.codeconnectedserver.domain.post.model;
+package com.gate6coders.codeconnectedserver.domain.education.model;
+
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -6,28 +7,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Data
 @Entity
-@ToString
+@Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Post {
-
+@ToString
+public class Education {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NonNull
-//    private Profile creator;
+    @NonNull
+    private String startDate;
 
     @NonNull
-    private String postContent;
+    private String endDate;
 
-//    @NonNull
-//    private Set<Profile> likes;
-//
-//    @NonNull
-//    private List<Comment> comments;
+    @NonNull
+    private String school;
 
+    @NonNull
+    private String degree;
+
+    @NonNull
+    private  String fieldOfStudy;
 }
-

@@ -18,20 +18,18 @@ public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "message_id")
     private Long id;
 
     private String messageContent;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @OneToOne(targetEntity = Profile.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "sender_message_id", referencedColumnName = "id")
     private Profile sender;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @OneToOne(targetEntity = Profile.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "receiver_message_id", referencedColumnName = "id")
     private Profile receiver;
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp dateSent;
 
     public Message(String messageContent, Profile sender, Profile receiver, Timestamp dateSent) {
