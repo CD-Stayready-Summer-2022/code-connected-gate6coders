@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -18,10 +19,10 @@ public class Education {
     private Long id;
 
     @NonNull
-    private String startDate;
+    private Timestamp startDate;
 
     @NonNull
-    private String endDate;
+    private Timestamp endDate;
 
     @NonNull
     private String school;

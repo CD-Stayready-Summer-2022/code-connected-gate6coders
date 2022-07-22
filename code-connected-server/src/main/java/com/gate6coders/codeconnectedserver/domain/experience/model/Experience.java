@@ -3,6 +3,7 @@ package com.gate6coders.codeconnectedserver.domain.experience.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -25,10 +26,10 @@ public class Experience {
     private String companyName;
 
     @NonNull
-    private String startDate;
+    private Timestamp startDate;
 
     @NonNull
-    private String endDate;
+    private Timestamp endDate;
 
     @NonNull
     private String industry;
