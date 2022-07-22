@@ -31,14 +31,19 @@ public class Profile {
     @NonNull
     private String password;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
     @NonNull
     private AboutUser aboutUser;
 
     @OneToMany(cascade = CascadeType.ALL)
     @NonNull
+    //Follower
+    //Profile_id Follower_id
     private List<Profile> follower;
 
     @OneToMany(cascade = CascadeType.ALL)
     @NonNull
+    //Following
     private List<Profile> following;
 }
