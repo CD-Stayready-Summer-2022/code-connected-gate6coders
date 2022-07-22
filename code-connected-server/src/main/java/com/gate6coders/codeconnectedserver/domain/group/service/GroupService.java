@@ -4,7 +4,7 @@ import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import java.util.List;
 
 public interface GroupService {
-    Group create(Long userId, Long groupId, String groupName);
+    void create(Long userId, Group group, String groupName);
     Group getGroupById(Long id);
     List<Profile> getAllMembers(Long id);
 

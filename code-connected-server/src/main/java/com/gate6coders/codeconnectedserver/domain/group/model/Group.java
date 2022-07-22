@@ -34,8 +34,8 @@ public class Group {
     @NonNull
     private String description;
 
-//    @OneToMany
-//    private List<Profile> groupMembers;
+     @OneToMany
+     private List<Profile> groupMembers;
 
 
 //    @Override
