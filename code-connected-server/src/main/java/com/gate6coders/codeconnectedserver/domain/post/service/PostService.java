@@ -7,9 +7,9 @@ import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import java.util.List;
 
 public interface PostService {
-    Profile getById(Long id) throws ProfileNotFoundException;
-    List<Profile> getProfiles();
-    List<Profile> getFollowers();
+    Post getById(Long id) throws ProfileNotFoundException;
+    List<Post> getProfiles();
+    List<Post> getFollowers();
     Long getById(Post post);
     Integer getNumberOfLikes();
     Post findByFullName();

@@ -28,9 +28,7 @@ public class Post {
     private Long likes;
 
     @NonNull
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = Comment.class)
-    @JoinColumn(name = "post_id", referencedColumnName = "id")
+    @OneToMany(mappedBy = "post", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Comment> comments;
-
 }
 
