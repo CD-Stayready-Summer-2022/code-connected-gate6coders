@@ -18,8 +18,10 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @NonNull
-//    private Profile profile;
+    @NonNull
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = Profile.class)
+    @JoinColumn(name = "commenter_id", referencedColumnName = "id")
+    private Profile commenter;
 
     @NonNull
     private String content;
