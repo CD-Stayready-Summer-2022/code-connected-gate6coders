@@ -1,6 +1,6 @@
 package com.gate6coders.codeconnectedserver.domain.group.controller;
 
-<<<<<<< HEAD
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class GroupController {
@@ -22,5 +22,5 @@ public class GroupController {
 
 
 
->>>>>>> 7aad8db2b03e86c694ec89bff4a68bdebc3d2646
+
 }

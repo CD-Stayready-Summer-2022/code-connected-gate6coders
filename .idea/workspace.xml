@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56cc85c8-458c-4c49-af8b-eacc5ad8bd5d" name="Changes" comment="" />
+    <list default="true" id="56cc85c8-458c-4c49-af8b-eacc5ad8bd5d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/code-connected-server/src/main/java/com/gate6coders/codeconnectedserver/domain/group/controller/GroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code-connected-server/src/main/java/com/gate6coders/codeconnectedserver/domain/group/controller/GroupController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
