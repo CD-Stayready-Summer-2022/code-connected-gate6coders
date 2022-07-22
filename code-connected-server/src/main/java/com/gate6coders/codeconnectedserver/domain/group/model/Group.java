@@ -27,6 +27,7 @@ import java.util.List;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Data
+@Table(name="groups")
 public class Group {
 
 //<<<<<<< HEAD
