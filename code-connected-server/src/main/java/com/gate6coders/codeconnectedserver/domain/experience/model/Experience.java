@@ -2,10 +2,7 @@ package com.gate6coders.codeconnectedserver.domain.experience.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -21,6 +18,7 @@ public class Experience {
     private String title;
 
     @NonNull
+    @Enumerated(EnumType.STRING)
     private ExperienceStatus experienceStatus;
 
     @NonNull

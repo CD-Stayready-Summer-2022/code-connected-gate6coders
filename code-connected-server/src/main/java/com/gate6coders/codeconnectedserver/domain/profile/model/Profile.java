@@ -1,12 +1,9 @@
 package com.gate6coders.codeconnectedserver.domain.profile.model;
 
-import com.gate6coders.codeconnectedserver.domain.aboutUser.model.AboutUser;
+import com.gate6coders.codeconnectedserver.aboutUser.model.AboutUser;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -34,12 +31,16 @@ public class Profile {
     @NonNull
     private String password;
 
+    @OneToOne(targetEntity = AboutUser.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "about_id", referencedColumnName = "id")
     @NonNull
     private AboutUser aboutUser;
 
-    @NonNull
-    private List<Profile> follower;
-
-    @NonNull
-    private List<Profile> following;
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @NonNull
+//    private List<Profile> follower;
+//
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @NonNull
+//    private List<Profile> following;
 }

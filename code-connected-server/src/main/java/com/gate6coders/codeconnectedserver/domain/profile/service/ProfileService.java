@@ -13,6 +13,6 @@ public interface ProfileService {
     List<Profile> getAllFollowing();
     Profile create(Profile profile) throws ResourceCreationException;
     Profile update(Long id, Profile profile) throws ProfileNotFoundException;
-    String follow(Long id1, Long id2);
+//    String follow(Long id1, Long id2);
     void delete(Long id) throws ProfileNotFoundException;
 }

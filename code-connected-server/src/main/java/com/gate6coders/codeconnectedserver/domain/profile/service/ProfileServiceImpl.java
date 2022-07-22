@@ -60,23 +60,23 @@ public class ProfileServiceImpl implements ProfileService{
         return profileRepo.save(profile);
     }
 
-    @Override
-    public String follow(Long id1, Long id2) {
-        Optional<Profile> optfollowedProfile = profileRepo.findById(id1);
-        Optional<Profile> optfollowerProfile = profileRepo.findById(id2);
-
-        Profile followedProfile = optfollowedProfile.get();
-        Profile followerProfile = optfollowerProfile.get();
-
-        //follower list
-        List<Profile> followerList = followedProfile.getFollower();
-        followerList.add(followerProfile);
-        followedProfile.setFollower(followerList);
-
-        profileRepo.save(followedProfile);
-        profileRepo.save(followerProfile);
-        return String.format("You followed %s", followedProfile.getUserName());
-    }
+//    @Override
+//    public String follow(Long id1, Long id2) {
+//        Optional<Profile> optfollowedProfile = profileRepo.findById(id1);
+//        Optional<Profile> optfollowerProfile = profileRepo.findById(id2);
+//
+//        Profile followedProfile = optfollowedProfile.get();
+//        Profile followerProfile = optfollowerProfile.get();
+//
+//        //follower list
+//        List<Profile> followerList = followedProfile.getFollower();
+//        followerList.add(followerProfile);
+//        followedProfile.setFollower(followerList);
+//
+//        profileRepo.save(followedProfile);
+//        profileRepo.save(followerProfile);
+//        return String.format("You followed %s", followedProfile.getUserName());
+//    }
 
     @Override
     public void delete(Long id) throws ProfileNotFoundException {

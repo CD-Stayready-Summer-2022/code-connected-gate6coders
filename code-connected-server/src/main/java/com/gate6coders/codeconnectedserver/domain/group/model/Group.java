@@ -25,26 +25,26 @@ public class Group {
     @NonNull
     private String groupName;
 
-    @ManyToOne
-    @JoinColumn(name = "id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "group_id", referencedColumnName = "id")
     @NonNull
     private Profile admin;
 
     @NonNull
     private String description;
 
-    @OneToMany
-    private List<Profile> groupMembers;
+//    @OneToMany
+//    private List<Profile> groupMembers;
 
 
-    @Override
-    public String toString() {
-        return "Group{" +
-                "id=" + id +
-                ", groupName='" + groupName + '\'' +
-                ", admin=" + admin +
-                ", description='" + description + '\'' +
-                ", groupMembers=" + groupMembers +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Group{" +
+//                "id=" + id +
+//                ", groupName='" + groupName + '\'' +
+//                ", admin=" + admin +
+//                ", description='" + description + '\'' +
+//                ", groupMembers=" + groupMembers +
+//                '}';
+//    }
 }

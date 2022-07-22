@@ -7,6 +7,8 @@ import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+
 @Service
 public class MessageServiceImpl implements MessageService{
 
@@ -29,13 +31,18 @@ public class MessageServiceImpl implements MessageService{
     }
 
     @Override
-    public Iterable<Message> getBySender(Profile profile) {
-        return null;
+    public Iterable<Message> getBySender(Long senderId) {
+        return messageRepo.findBySender(senderId);
     }
 
     @Override
-    public Iterable<Message> getByReceiver(Profile profile) {
-        return null;
+    public Iterable<Message> getByReceiver(Long receiverId) {
+        return messageRepo.findByReceiver(receiverId);
+    }
+
+    @Override
+    public Iterable<Message> getByDate(Timestamp timestamp){
+        return messageRepo.findByDateSent(timestamp);
     }
 
     @Override
