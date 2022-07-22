@@ -1,14 +1,20 @@
 package com.gate6coders.codeconnectedserver.domain.group.model;
 
+import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+//<<<<<<< HEAD
+import javax.persistence.*;
+//=======
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//>>>>>>> 1ec414fb12785b4c0eef8d472a2e09823489c2dc
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -26,16 +32,18 @@ public class Group {
     @NonNull
     private String groupName;
 
+    @ManyToOne
+    @JoinColumn(name = "id")
     @NonNull
     private Profile admin;
 
     @NonNull
     private String description;
 
-    @NonNull
+    @OneToMany
     private List<Profile> groupMembers;
 
-    //remember to add profile once profile class is complete
+
     @Override
     public String toString() {
         return "Group{" +
