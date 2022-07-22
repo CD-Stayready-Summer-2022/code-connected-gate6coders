@@ -25,9 +25,11 @@ public class Post {
     private String postContent;
 
     @NonNull
-    private Set<Profile> likes;
+    private Long likes;
 
     @NonNull
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Comment.class)
+    @JoinColumn(name = "post_id", referencedColumnName = "id")
     private List<Comment> comments;
 
 }
