@@ -41,6 +41,6 @@ public class MockProfileController {
     @GetMapping("/post/{id}")
     public ResponseEntity<Post> getById(@PathVariable("id") Long id) throws ProfileNotFoundException {
         Post post = postService.getById(id);
-        return null;
+        return new ResponseEntity<>(post, HttpStatus.OK);
     }
 }

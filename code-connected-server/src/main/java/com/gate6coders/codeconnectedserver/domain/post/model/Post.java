@@ -17,9 +17,9 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NonNull
-    @OneToOne
-    private Profile creator;
+//    @NonNull
+//    @OneToOne
+//    private Profile creator;
 
     @NonNull
     private String postContent;

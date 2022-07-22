@@ -1,5 +1,6 @@
 package com.gate6coders.codeconnectedserver.domain.comment.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gate6coders.codeconnectedserver.domain.post.model.Post;
 import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import lombok.*;
@@ -28,6 +29,7 @@ public class Comment {
 
     @NonNull
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "post_id")
     private Post post;
 
