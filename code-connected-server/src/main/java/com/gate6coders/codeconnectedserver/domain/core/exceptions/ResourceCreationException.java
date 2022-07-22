@@ -1,6 +1,9 @@
 package com.gate6coders.codeconnectedserver.domain.core.exceptions;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> abdul
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -8,6 +11,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class ResourceCreationException extends RuntimeException{
     public ResourceCreationException(String message) {
 
+<<<<<<< HEAD
         super(message);
+=======
+>>>>>>> abdul
     }
 }
