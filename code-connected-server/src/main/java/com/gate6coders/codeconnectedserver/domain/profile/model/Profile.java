@@ -1,10 +1,9 @@
 package com.gate6coders.codeconnectedserver.domain.profile.model;
 
-import com.gate6coders.codeconnectedserver.aboutUser.model.AboutUser;
+import com.gate6coders.codeconnectedserver.domain.aboutUser.model.AboutUser;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @ToString

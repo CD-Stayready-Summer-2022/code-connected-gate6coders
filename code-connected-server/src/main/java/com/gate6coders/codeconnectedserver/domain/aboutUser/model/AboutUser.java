@@ -1,4 +1,4 @@
-package com.gate6coders.codeconnectedserver.aboutUser.model;
+package com.gate6coders.codeconnectedserver.domain.aboutUser.model;
 
 import com.gate6coders.codeconnectedserver.domain.education.model.Education;
 import com.gate6coders.codeconnectedserver.domain.experience.model.Experience;

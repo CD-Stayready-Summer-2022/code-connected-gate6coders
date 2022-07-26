@@ -1,12 +1,13 @@
 package com.gate6coders.codeconnectedserver.domain.message.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gate6coders.codeconnectedserver.aboutUser.model.AboutUser;
+import com.gate6coders.codeconnectedserver.domain.aboutUser.model.AboutUser;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.message.model.Message;
 import com.gate6coders.codeconnectedserver.domain.message.service.MessageService;
 import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
+import com.gate6coders.codeconnectedserver.security.PrincipalDetailsArgumentResolver;
+import com.gate6coders.codeconnectedserver.security.models.FireBaseUser;
 import org.hamcrest.core.Is;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,7 +15,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentMatchers;
 import org.mockito.BDDMockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -23,11 +23,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -37,7 +36,6 @@ public class MessageControllerTest {
     @MockBean
     private MessageService messageService;
 
-    @Autowired
     private MockMvc mockMvc;
 
     private Message inputMessage;
@@ -53,6 +51,13 @@ public class MessageControllerTest {
 
     @BeforeEach
     public void setUp() {
+        FireBaseUser fireBaseUser = new FireBaseUser();
+        fireBaseUser.setEmail("test@user.com");
+        fireBaseUser.setUid("xyz");
+        mockMvc = MockMvcBuilders
+                .standaloneSetup(new MessageController(messageService))
+                .setCustomArgumentResolvers(new PrincipalDetailsArgumentResolver(fireBaseUser))
+                .build();
         aboutUser = new AboutUser("D", "d", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         profile1 = new Profile("Luis", "Adorno", "fake@fakemail.com", "THELuis", "123", aboutUser);
         profile2 = new Profile("Luis", "Adorno", "fake@fakemail.com", "THELuis", "123", aboutUser);
