@@ -42,27 +42,4 @@ public class Group {
      @JoinColumn(name = "group_id", referencedColumnName = "id")
      private List<Profile> groupMembers;
 
-    @Override
-    public String toString() {
-        return "Group{" +
-                "id=" + id +
-                ", groupName='" + groupName + '\'' +
-                ", admin=" + admin +
-                ", description='" + description + '\'' +
-                ", groupMembers=" + groupMembers +
-                '}';
-    }
-
-//    @Override
-//    public String toString() {
-//        return "Group{" +
-//                "id=" + id +
-//                ", groupName='" + groupName + '\'' +
-//                ", admin=" + admin +
-//                ", description='" + description + '\'' +
-//                ", groupMembers=" + groupMembers +
-//                '}';
-//    }
-
-
 }
