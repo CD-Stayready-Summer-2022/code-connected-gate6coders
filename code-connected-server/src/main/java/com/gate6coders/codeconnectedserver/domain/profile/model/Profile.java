@@ -44,7 +44,16 @@ public class Profile {
             inverseJoinColumns = @JoinColumn(name = "group_id")
     )
     @NonNull
-    private Set<Group> groups;
+    private Set<Group> groupMembers;
+
+    public Profile(String firstName, String lastName, String email, String userName, String password, AboutUser aboutUser) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.aboutUser = aboutUser;
+    }
 
 //    @OneToMany(cascade = CascadeType.ALL)
 //    @NonNull

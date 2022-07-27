@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class MessageTest {
 

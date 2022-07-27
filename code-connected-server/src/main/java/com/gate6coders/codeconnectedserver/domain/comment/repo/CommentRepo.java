@@ -1,4 +1,8 @@
 package com.gate6coders.codeconnectedserver.domain.comment.repo;
 
-public interface CommentRepo {
+import com.gate6coders.codeconnectedserver.domain.comment.model.Comment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CommentRepo extends JpaRepository<Comment, Long> {
+
 }

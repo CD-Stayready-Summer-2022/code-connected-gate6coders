@@ -1,12 +1,10 @@
 package com.gate6coders.codeconnectedserver.domain.post.service;
-
-import com.gate6coders.codeconnectedserver.domain.core.exceptions.ProfileNotFoundException;
+import com.gate6coders.codeconnectedserver.domain.comment.model.Comment;
+import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.post.model.Post;
 import com.gate6coders.codeconnectedserver.domain.post.repo.PostRepo;
-import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -20,14 +18,19 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post getById(Long id) throws ProfileNotFoundException {
+    public Post getById(Long id) throws ResourceNotFoundException {
         return postRepo.findById(id)
-                .orElseThrow(() -> new ProfileNotFoundException("This profile cannot be found"));
+                .orElseThrow(() -> new ResourceNotFoundException("This profile cannot be found"));
     }
 
     @Override
-    public List<Post> getProfiles() {
+    public List<Post> getAllPosts() {
         return postRepo.findAll();
+    }
+
+    @Override
+    public Post create(Post post) {
+        return postRepo.save(post);
     }
 
     @Override
@@ -41,12 +44,30 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<Comment> getAllLikes(Long postId) {
+        return null;
+    }
+
+    @Override
+    public String getPostContent(Post postContent) {
+        return null;
+    }
+
+    @Override
     public Integer getNumberOfLikes() {
         return null;
     }
 
     @Override
-    public Post findByFullName() {
-        return null;
+    public Post updateContent(Long id, Post postContent) throws ResourceNotFoundException {
+        Post post = getById(id);
+        post.setPostContent(postContent.getPostContent());
+        return postRepo.save(post);
+    }
+
+    @Override
+    public void delete(Long id) throws ResourceNotFoundException {
+        Post post = getById(id);
+        postRepo.delete(post);
     }
 }

@@ -1,6 +1,5 @@
 package com.gate6coders.codeconnectedserver.domain.message.service;
 
-import com.fasterxml.jackson.databind.util.ArrayIterator;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.message.model.Message;
 import com.gate6coders.codeconnectedserver.domain.message.repo.MessageRepo;
@@ -20,7 +19,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
