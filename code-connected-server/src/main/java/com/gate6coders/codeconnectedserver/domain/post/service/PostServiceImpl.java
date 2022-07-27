@@ -34,27 +34,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getFollowers() {
-        return null;
-    }
-
-    @Override
     public Long getById(Post post) {
-        return null;
-    }
-
-    @Override
-    public List<Comment> getAllLikes(Long postId) {
-        return null;
-    }
-
-    @Override
-    public String getPostContent(Post postContent) {
-        return null;
-    }
-
-    @Override
-    public Integer getNumberOfLikes() {
         return null;
     }
 

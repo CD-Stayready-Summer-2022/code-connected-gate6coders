@@ -40,6 +40,7 @@ public class Profile {
 
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     @JoinTable(
             name = "profile_group",
             joinColumns = @JoinColumn(name = "profile_id"),
