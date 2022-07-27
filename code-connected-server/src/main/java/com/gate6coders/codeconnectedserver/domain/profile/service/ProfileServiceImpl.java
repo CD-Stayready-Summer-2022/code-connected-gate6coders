@@ -2,10 +2,9 @@ package com.gate6coders.codeconnectedserver.domain.profile.service;
 
 import com.gate6coders.codeconnectedserver.domain.aboutUser.model.AboutUser;
 import com.gate6coders.codeconnectedserver.domain.aboutUser.repo.AboutUserRepo;
-import com.gate6coders.codeconnectedserver.domain.core.exceptions.ProfileNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceCreationException;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceNotFoundException;
-import com.gate6coders.codeconnectedserver.domain.education.model.Education;
+import com.gate6coders.codeconnectedserver.domain.group.education.model.Education;
 import com.gate6coders.codeconnectedserver.domain.experience.model.Experience;
 import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import com.gate6coders.codeconnectedserver.domain.profile.repo.ProfileRepo;
@@ -54,11 +53,12 @@ public class ProfileServiceImpl implements ProfileService{
         Optional<Profile> optional = profileRepo.findByUserName(profile.getUserName());
         if (optional.isPresent())
             throw new ResourceCreationException("Profile with this user name does not exist");
+        profile.setAboutUser(new AboutUser());
         return profileRepo.save(profile);
     }
 
     @Override
-    public Profile update(Long id, Profile profile) throws ProfileNotFoundException {
+    public Profile update(Long id, Profile profile) throws ResourceNotFoundException {
         Profile savedProfile = getById(id);
         savedProfile.setFirstName(profile.getFirstName());
         savedProfile.setLastName(profile.getLastName());
@@ -75,7 +75,7 @@ public class ProfileServiceImpl implements ProfileService{
     }
 
     @Override
-    public Profile updateEducation(Long profileId, Education education) throws ResourceNotFoundException, ProfileNotFoundException {
+    public Profile updateEducation(Long profileId, Education education) throws ResourceNotFoundException {
         Profile profile = getById(profileId);
         AboutUser educationDetail = profile.getAboutUser();
         educationDetail.getEducation().add(education);
@@ -84,23 +84,28 @@ public class ProfileServiceImpl implements ProfileService{
 
     @Override
     public Profile updateExperiences(Long profileId, Experience experience) throws ResourceNotFoundException {
-        return null;
+        Profile profile = getById(profileId);
+        AboutUser experiencesDetail = profile.getAboutUser();
+        experiencesDetail.getExperience().add(experience);
+        return profileRepo.save(profile);
     }
 
     @Override
     public Profile updateSkills(Long profileId, Skill skill) {
-        return null;
+        Profile profile = getById(profileId);
+        AboutUser skillDetail = profile.getAboutUser();
+        skillDetail.getSkills().add(skill.getSkill());
+        return profileRepo.save(profile);
     }
 
     @Override
     public Profile updateHeadline(Long profileId, String profileHeadline) throws ResourceNotFoundException {
-        return null;
+        Profile profile = getById(profileId);
+        AboutUser headlineDetail = profile.getAboutUser();
+        headlineDetail.setProfileHeadline(profileHeadline);
+        return profileRepo.save(profile);
     }
 
-    @Override
-    public Profile updateAbout(Long profileId, AboutUser aboutUser) throws ResourceNotFoundException {
-        return null;
-    }
 
 //    @Override
 //    public String follow(Long id1, Long id2) {
@@ -121,7 +126,7 @@ public class ProfileServiceImpl implements ProfileService{
 //    }
 
     @Override
-    public void delete(Long id) throws ProfileNotFoundException {
+    public void delete(Long id) throws ResourceNotFoundException {
         Profile profile = getById(id);
         profileRepo.delete(profile);
     }
