@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -37,32 +38,11 @@ public class Group {
     @NonNull
     private String description;
 
+    @ManyToMany(mappedBy = "groupMembers")
+    Set<Profile> groups;
+
 
      @OneToMany(cascade = CascadeType.ALL, targetEntity = Profile.class)
      @JoinColumn(name = "group_id", referencedColumnName = "id")
      private List<Profile> groupMembers;
-
-    @Override
-    public String toString() {
-        return "Group{" +
-                "id=" + id +
-                ", groupName='" + groupName + '\'' +
-                ", admin=" + admin +
-                ", description='" + description + '\'' +
-                ", groupMembers=" + groupMembers +
-                '}';
-    }
-
-//    @Override
-//    public String toString() {
-//        return "Group{" +
-//                "id=" + id +
-//                ", groupName='" + groupName + '\'' +
-//                ", admin=" + admin +
-//                ", description='" + description + '\'' +
-//                ", groupMembers=" + groupMembers +
-//                '}';
-//    }
-
-
 }

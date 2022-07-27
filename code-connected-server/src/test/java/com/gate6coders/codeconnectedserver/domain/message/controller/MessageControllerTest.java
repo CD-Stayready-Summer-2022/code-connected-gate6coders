@@ -99,7 +99,7 @@ public class MessageControllerTest {
     @Test
     @DisplayName("Get message request - failure")
     public void getMessageRequestTest02() throws Exception{
-        BDDMockito.doThrow(new ResourceNotFoundException()).when(messageService).getById(ArgumentMatchers.any());
+        BDDMockito.doThrow(new ResourceNotFoundException(" ")).when(messageService).getById(ArgumentMatchers.any());
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/messages/1"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
@@ -115,7 +115,7 @@ public class MessageControllerTest {
     @Test
     @DisplayName("Delete message request - failure")
     public void deleteMessageRequestTest02() throws Exception{
-        BDDMockito.doThrow(new ResourceNotFoundException()).when(messageService).delete(ArgumentMatchers.any());
+        BDDMockito.doThrow(new ResourceNotFoundException(" ")).when(messageService).delete(ArgumentMatchers.any());
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/messages/1"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }

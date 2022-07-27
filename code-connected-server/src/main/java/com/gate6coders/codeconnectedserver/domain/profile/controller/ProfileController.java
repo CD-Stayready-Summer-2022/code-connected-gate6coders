@@ -2,7 +2,7 @@ package com.gate6coders.codeconnectedserver.domain.profile.controller;
 
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ProfileNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceNotFoundException;
-import com.gate6coders.codeconnectedserver.domain.group.education.model.Education;
+import com.gate6coders.codeconnectedserver.domain.education.model.Education;
 import com.gate6coders.codeconnectedserver.domain.experience.model.Experience;
 import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import com.gate6coders.codeconnectedserver.domain.profile.service.ProfileService;

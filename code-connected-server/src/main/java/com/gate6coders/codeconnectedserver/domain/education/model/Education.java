@@ -1,4 +1,4 @@
-package com.gate6coders.codeconnectedserver.domain.group.education.model;
+package com.gate6coders.codeconnectedserver.domain.education.model;
 
 import lombok.*;
 

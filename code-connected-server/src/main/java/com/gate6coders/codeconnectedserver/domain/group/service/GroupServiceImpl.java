@@ -14,9 +14,8 @@ public class GroupServiceImpl implements GroupService {
     private GroupRepo groupRepo;
 
     @Override
-    public void create(Long userId, Group group, String groupName) {
-        Profile admin = profileRepo.getReferenceById(userId);
-        groupRepo.save(group);
+    public Group create(Group group) {
+      return groupRepo.save(group);
     }
 
     @Override
