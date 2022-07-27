@@ -26,7 +26,7 @@ public class MessageServiceImpl implements MessageService{
     @Override
     public Message getById(Long id) throws ResourceNotFoundException {
         return messageRepo.findById(id)
-                .orElseThrow(ResourceNotFoundException::new);
+                .orElseThrow(() -> new ResourceNotFoundException("resource with Id not found"));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class MessageServiceImpl implements MessageService{
     @Override
     public Boolean delete(Long id) throws ResourceNotFoundException {
         Message message = messageRepo.findById(id)
-                .orElseThrow(ResourceNotFoundException::new);
+                .orElseThrow(() -> new ResourceNotFoundException("resource with ID not found"));
         messageRepo.delete(message);
         return true;
     }

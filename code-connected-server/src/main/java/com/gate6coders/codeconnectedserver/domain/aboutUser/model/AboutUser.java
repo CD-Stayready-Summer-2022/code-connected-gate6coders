@@ -1,6 +1,6 @@
 package com.gate6coders.codeconnectedserver.domain.aboutUser.model;
 
-import com.gate6coders.codeconnectedserver.domain.education.model.Education;
+import com.gate6coders.codeconnectedserver.domain.group.education.model.Education;
 import com.gate6coders.codeconnectedserver.domain.experience.model.Experience;
 import com.gate6coders.codeconnectedserver.domain.skill.model.Skill;
 import lombok.*;

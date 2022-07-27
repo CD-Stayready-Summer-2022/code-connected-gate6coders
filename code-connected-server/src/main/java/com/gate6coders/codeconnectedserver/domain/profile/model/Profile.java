@@ -1,9 +1,11 @@
 package com.gate6coders.codeconnectedserver.domain.profile.model;
 
 import com.gate6coders.codeconnectedserver.domain.aboutUser.model.AboutUser;
+import com.gate6coders.codeconnectedserver.domain.group.model.Group;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @ToString
@@ -34,6 +36,15 @@ public class Profile {
     @JoinColumn(name = "about_id", referencedColumnName = "id")
     @NonNull
     private AboutUser aboutUser;
+
+    @ManyToMany
+    @JoinTable(
+            name = "profile_group",
+            joinColumns = @JoinColumn(name = "profile_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id")
+    )
+    @NonNull
+    private Set<Group> groups;
 
 //    @OneToMany(cascade = CascadeType.ALL)
 //    @NonNull
