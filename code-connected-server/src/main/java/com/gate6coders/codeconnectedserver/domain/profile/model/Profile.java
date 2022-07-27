@@ -1,5 +1,6 @@
 package com.gate6coders.codeconnectedserver.domain.profile.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gate6coders.codeconnectedserver.domain.aboutUser.model.AboutUser;
 import com.gate6coders.codeconnectedserver.domain.group.model.Group;
 import lombok.*;

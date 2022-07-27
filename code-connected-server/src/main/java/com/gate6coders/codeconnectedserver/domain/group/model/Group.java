@@ -20,7 +20,6 @@ import java.util.Set;
 @Data
 @ToString
 @EqualsAndHashCode
-@Table(name="groups")
 public class Group {
 
     @Id
