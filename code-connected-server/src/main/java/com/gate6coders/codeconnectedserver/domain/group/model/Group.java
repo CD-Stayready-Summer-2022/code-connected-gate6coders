@@ -45,4 +45,8 @@ public class Group {
      @OneToMany(cascade = CascadeType.ALL, targetEntity = Profile.class)
      @JoinColumn(name = "group_id", referencedColumnName = "id")
      private List<Profile> groupMembers;
+<<<<<<< HEAD
+=======
+
+>>>>>>> dde5ac5a0fc25c62ed027d5b39819237bccb0956
 }
