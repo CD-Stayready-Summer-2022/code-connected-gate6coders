@@ -70,7 +70,7 @@ public class ProfileServiceImpl implements ProfileService{
 
     @Override
     public AboutUser getByHeadLine(String profileHeadLine) throws ResourceNotFoundException {
-        return aboutUserRepo.findByHeadLine(profileHeadLine)
+        return aboutUserRepo.findByProfileHeadline(profileHeadLine)
                 .orElseThrow(() -> new ResourceNotFoundException("This headline does not exist"));
     }
 
