@@ -38,9 +38,9 @@ public class Profile {
     @NonNull
     private AboutUser aboutUser;
 
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "profile_group",
             joinColumns = @JoinColumn(name = "profile_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id")
     )

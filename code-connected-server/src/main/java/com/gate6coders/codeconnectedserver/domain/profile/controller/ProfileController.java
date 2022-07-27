@@ -56,12 +56,12 @@ public class ProfileController {
     @PostMapping("{id}/about/education")
     public ResponseEntity<Profile> updateEducation(@PathVariable("id") Long id, @RequestBody Education educationDetail) throws ResourceNotFoundException {
         Profile education = profileService.updateEducation(id, educationDetail);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(education, HttpStatus.ACCEPTED);
     }
 
     @PostMapping("{id}/about/experiences")
     public ResponseEntity<Profile> updateExperiences(@PathVariable("id") Long id, @RequestBody Experience experienceDetail) throws ResourceNotFoundException {
         Profile experience = profileService.updateExperiences(id, experienceDetail);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(experience, HttpStatus.ACCEPTED);
     }
 }
