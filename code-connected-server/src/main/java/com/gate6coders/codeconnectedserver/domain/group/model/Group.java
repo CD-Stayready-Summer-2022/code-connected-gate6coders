@@ -37,11 +37,7 @@ public class Group {
     @NonNull
     private String description;
 
-    @ManyToMany(mappedBy = "groupMembers")
-    Set<Profile> groups;
+    @ManyToMany(mappedBy = "groups")
+    Set<Profile> groupMembers;
 
-
-     @OneToMany(cascade = CascadeType.ALL, targetEntity = Profile.class)
-     @JoinColumn(name = "group_id", referencedColumnName = "id")
-     private List<Profile> groupMembers;
 }

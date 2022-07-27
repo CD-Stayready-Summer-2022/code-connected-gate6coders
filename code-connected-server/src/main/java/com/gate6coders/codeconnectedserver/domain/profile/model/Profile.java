@@ -38,14 +38,15 @@ public class Profile {
     @NonNull
     private AboutUser aboutUser;
 
-    @JsonIgnore
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
+            name = "profile_group",
             joinColumns = @JoinColumn(name = "profile_id"),
             inverseJoinColumns = @JoinColumn(name = "group_id")
     )
     @NonNull
-    private Set<Group> groupMembers;
+    private Set<Group> groups;
 
     public Profile(String firstName, String lastName, String email, String userName, String password, AboutUser aboutUser) {
         this.firstName = firstName;

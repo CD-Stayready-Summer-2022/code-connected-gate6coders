@@ -26,8 +26,9 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public List<Profile> getAllMembers(Long id) {
-        Optional<Group> optional = groupRepo.findById(id);
-        return optional.get().getGroupMembers();
+//        Optional<Group> optional = groupRepo.findById(id);
+//        return optional.get().getGroupMembers();
+        return null;
     }
 }
 
