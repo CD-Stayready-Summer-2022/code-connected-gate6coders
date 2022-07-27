@@ -1,9 +1,15 @@
 package com.gate6coders.codeconnectedserver.domain.profile.service;
 
+import com.gate6coders.codeconnectedserver.domain.aboutUser.model.AboutUser;
+import com.gate6coders.codeconnectedserver.domain.aboutUser.repo.AboutUserRepo;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ProfileNotFoundException;
 import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceCreationException;
+import com.gate6coders.codeconnectedserver.domain.core.exceptions.ResourceNotFoundException;
+import com.gate6coders.codeconnectedserver.domain.education.model.Education;
+import com.gate6coders.codeconnectedserver.domain.experience.model.Experience;
 import com.gate6coders.codeconnectedserver.domain.profile.model.Profile;
 import com.gate6coders.codeconnectedserver.domain.profile.repo.ProfileRepo;
+import com.gate6coders.codeconnectedserver.domain.skill.model.Skill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,16 +20,18 @@ import java.util.Optional;
 public class ProfileServiceImpl implements ProfileService{
 
     private ProfileRepo profileRepo;
+    private AboutUserRepo aboutUserRepo;
 
     @Autowired
-    public ProfileServiceImpl(ProfileRepo profileRepo) {
+    public ProfileServiceImpl(ProfileRepo profileRepo, AboutUserRepo aboutUserRepo) {
         this.profileRepo = profileRepo;
+        this.aboutUserRepo = aboutUserRepo;
     }
 
     @Override
-    public Profile getById(Long id) throws ProfileNotFoundException {
+    public Profile getById(Long id) throws ResourceNotFoundException {
         return profileRepo.findById(id)
-                .orElseThrow(() -> new ProfileNotFoundException("Profile with id does not exist"));
+                .orElseThrow(() -> new ResourceNotFoundException("Profile with id does not exist"));
     }
 
     @Override
@@ -58,6 +66,40 @@ public class ProfileServiceImpl implements ProfileService{
         savedProfile.setPassword(profile.getPassword());
         savedProfile.setAboutUser(profile.getAboutUser());
         return profileRepo.save(profile);
+    }
+
+    @Override
+    public AboutUser getByHeadLine(String profileHeadLine) throws ResourceNotFoundException {
+        return aboutUserRepo.findByHeadLine(profileHeadLine)
+                .orElseThrow(() -> new ResourceNotFoundException("This headline does not exist"));
+    }
+
+    @Override
+    public Profile updateEducation(Long profileId, Education education) throws ResourceNotFoundException, ProfileNotFoundException {
+        Profile profile = getById(profileId);
+        AboutUser educationDetail = profile.getAboutUser();
+        educationDetail.getEducation().add(education);
+        return profileRepo.save(profile);
+    }
+
+    @Override
+    public Profile updateExperiences(Long profileId, Experience experience) throws ResourceNotFoundException {
+        return null;
+    }
+
+    @Override
+    public Profile updateSkills(Long profileId, Skill skill) {
+        return null;
+    }
+
+    @Override
+    public Profile updateHeadline(Long profileId, String profileHeadline) throws ResourceNotFoundException {
+        return null;
+    }
+
+    @Override
+    public Profile updateAbout(Long profileId, AboutUser aboutUser) throws ResourceNotFoundException {
+        return null;
     }
 
 //    @Override

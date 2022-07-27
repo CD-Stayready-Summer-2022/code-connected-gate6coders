@@ -8,5 +8,4 @@ public interface GroupService {
     Group getGroupById(Long id);
     List<Profile> getAllMembers(Long id);
 
-
 }
